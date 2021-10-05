@@ -24,41 +24,46 @@ class User:
     def transfer_money(self, other_user, amount):
         self.account_balance -= amount
         other_user.account_balance += amount
-    
-    
 
+    
 #prints greeting message togteher with the user name
     def greeting(self):
         print("Hello my name is", self.name)
         print("my email is ", self.email)
 
+#creating 3 users
+user1 = User("Adrien", "adrien@yahoo.com")
+user2 = User("Hermine", "hermine@codingdojo.com")
+user3 = User("Bob", "bob@codingdojo.com")
 
-hermine = User("Hermine Avagyan", "hermine@codingdojo.com")
-mila = User("Mila Kishmishyan", "mila@codingdojo.com")
-bob = User("Bob Smith", "bobsmith@codingdojo.com")
-bob.bank_name = "Bank of America"
+#first user makes 3 deposits and 1 withdrawals
+user1.make_deposit(400)
+user1.make_deposit(400)
+user1.make_deposit(600)
+user1.make_withdrawal(200)
 
-mila.make_deposit(1000)
-print("Mila's account balance is ", mila.account_balance)
-print(bob.account_balance)
+#second user makes 2 deposits and 2 withdrawals
+user2.make_deposit(500)
+user2.make_deposit(800)
+user2.make_withdrawal(300)
+user2.make_withdrawal(100)
+
+#third user makes 1 deposits and 3 withdrawals
+user3.make_deposit(800)
+user3.make_withdrawal(300)
+user3.make_withdrawal(500)
+user3.make_withdrawal(150)
+
+#call display_user_balance method to display the users' account balances
+user1.display_user_balance()
+user2.display_user_balance()
+user3.display_user_balance()
+
+user1.transfer_money(user3,200)
 print()
-mila.transfer_money(bob, 200)
-print(mila.account_balance)
-print(bob.account_balance)
-
-
-
-# print("Bobs bank is", bob.bank_name)
-# print("Mila's bank is", mila.bank_name)
-# mila.make_deposit(1000)
-# print("Mila has a balance of")
-# mila.display_user_balance()
-# print()
-# mila.make_withdrawal(200)
-# print("MIla has a balance of ")
-# mila.display_user_balance()
-
-
-
+print("After calling transfer money method the account balances of the first and the third user")
+# after calling transfer money method the account balances of the first and the third user
+user1.display_user_balance()
+user3.display_user_balance()
 
 
